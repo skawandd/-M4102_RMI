@@ -1,57 +1,59 @@
 package fr.univ_lille.iut.m4102;
 
-public class Calculatrice{
+public class Calculatrice {
 	private double x;
 	private double y;
 	private String s;
-	private char signe;
-	
-	public void setS(String s){
+
+	public void setS(String s) {
 		this.s = s;
 	}
-	
-	public void traitement(){
-		if(s.contains("+")){
+
+	public String traitement() throws DivisionParZero {
+		if (s.contains("+")) {
 			this.x = Double.parseDouble(s.substring(0, s.indexOf("+")));
-			signe ='+';
-			this.y = Double.parseDouble(s.substring(s.indexOf("+")+1, s.length()));
+			this.y = Double.parseDouble(s.substring(s.indexOf("+") + 1, s.length()));
+			return addition();
 		}
-		
-		if(s.contains("-")){
+
+		if (s.contains("-")) {
 			this.x = Double.parseDouble(s.substring(0, s.indexOf("-")));
-			signe = '-';
-			this.y = Double.parseDouble(s.substring(s.indexOf("-")+1, s.length()));
+			this.y = Double.parseDouble(s.substring(s.indexOf("-") + 1, s.length()));
+			return soustraction();
+		}
+
+		if (s.contains("*")) {
+			this.x = Double.parseDouble(s.substring(0, s.indexOf("*")));
+			this.y = Double.parseDouble(s.substring(s.indexOf("*") + 1, s.length()));
+			return multiplication();
+
+		}
+
+		if (s.contains("/")) {
+			this.x = Double.parseDouble(s.substring(0, s.indexOf("/")));
+			this.y = Double.parseDouble(s.substring(s.indexOf("/") + 1, s.length()));
+			return division();
 		}
 		
-		if(s.contains("*")){
-			this.x = Double.parseDouble(s.substring(0, s.indexOf("*")));
-			signe = '*';
-			this.y = Double.parseDouble(s.substring(s.indexOf("*")+1, s.length()));
-			
-		}else
-			this.x = Double.parseDouble(s.substring(0, s.indexOf("/")));
-			signe = '/';
-			this.y = Double.parseDouble(s.substring(s.indexOf("/")+1, s.length()));
+		return "Ce n'est pas un calcul";
 	}
-	
-	
-	
-	public int addition(int x, int y){
-		return x + y;
+
+	public String addition() {
+		return "= " + (this.x + this.y);
 	}
-	
-	public int soustraction(int x, int y){
-		return x - y;
+
+	public String soustraction() {
+		return "= " + (this.x - this.y);
 	}
-	
-	public int multiplication(int x, int y){
-		return x * y;
+
+	public String multiplication() {
+		return "= " + (this.x * this.y);
 	}
-	
-	public int division(int x, int y) throws DivisionParZero{
-		if(y == 0)
-			throw new DivisionParZero("Erreur division par 0!");
-		
-		return x / y;
+
+	public String division() throws DivisionParZero {
+		if (y == 0)
+			throw new DivisionParZero("Erreur division par 0 !");
+
+		return "= " + (this.x / this.y);
 	}
 }
