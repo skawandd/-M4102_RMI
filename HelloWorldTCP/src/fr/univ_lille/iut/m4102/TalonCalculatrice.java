@@ -17,7 +17,7 @@ public class TalonCalculatrice implements Runnable {
 		try {
 			PrintStream out = new PrintStream(unClient.getOutputStream());
 			BufferedReader in = new BufferedReader(new InputStreamReader(unClient.getInputStream()));
-			Calculatrice calc = new Calculatrice();
+			StringFun calc = new StringFun();
 			String s = in.readLine();
 			System.out.println("Le client " + unClient.getInetAddress() + " envoie : " + s);
 			calc.setS(s);
