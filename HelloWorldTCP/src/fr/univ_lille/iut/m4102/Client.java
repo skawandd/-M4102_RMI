@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Client {
 	public static void main(String[] args) {
-		ClientTCP TC = new ClientTCP("localhost", /*Integer.parseInt(args[1])*/3131);
+		ClientTCP TC = new ClientTCP("localhost",3131);
 		Scanner sc = new Scanner(System.in);
 		while(true){
 			String s = sc.next();
