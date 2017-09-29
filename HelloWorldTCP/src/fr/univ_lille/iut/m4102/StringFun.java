@@ -8,10 +8,11 @@ public class StringFun {
 		this.s = s;
 	}
 
-	public String traitement() throws DivisionParZero {
+	public String asphyxie() throws PasDair {
 		/*if(s.contains("[rR]") == false){
 			throw new DivisionParZero("Il y a pas d'air mdr!");
 		}*/
+		System.out.println(s.contains("[rR]"));
 		s = s.replaceAll("[rR]", "");
 		System.out.println(s);
 		return leet("t2"+s);

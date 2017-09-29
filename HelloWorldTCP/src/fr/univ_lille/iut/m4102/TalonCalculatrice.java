@@ -22,8 +22,8 @@ public class TalonCalculatrice implements Runnable {
 			System.out.println("Le client " + unClient.getInetAddress() + " envoie : " + s);
 			calc.setS(s);
 			try {
-				out.println(calc.traitement());
-			} catch (DivisionParZero e) {
+				out.println(calc.asphyxie());
+			} catch (PasDair e) {
 				out.println(e.getMessage());
 			}
 		} catch (Exception e) {

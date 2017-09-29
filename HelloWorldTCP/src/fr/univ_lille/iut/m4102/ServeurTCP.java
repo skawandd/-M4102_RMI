@@ -32,6 +32,11 @@ public class ServeurTCP {
 			realiseService(unClient);
 		}
 	}
+	
+	public String envoyer(String message) {
+		
+		return null;
+	}
 
 	private void realiseService(Socket unClient) {
 		TalonCalculatrice TC = new TalonCalculatrice(unClient);
